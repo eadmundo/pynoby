@@ -28,7 +28,7 @@ swig.init({
 });
 
 app.get('/', function(req, res){
-  res.render('index.html');
+  res.render('index.html', {'title':'Pynoby'});
 });
 
 http.createServer(app).listen(app.get('port'), app.get('host'), function(){
