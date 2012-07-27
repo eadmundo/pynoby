@@ -1,0 +1,16 @@
+# ignore vagrant stuff
+.vagrant
+
+# OS X
+.DS_Store
+
+# python
+*.pyc
+python_pynoby/venv/*
+python_pynoby/build/*
+
+# node
+node_pynoby/node_modules/*
+
+# ruby
+ruby_pynoby/*.lock

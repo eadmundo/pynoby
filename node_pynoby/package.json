@@ -1,0 +1,9 @@
+{
+  "name": "node-pynoby",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express" : "3.0.0rc1",
+    "swig": "0.12.0"
+  }
+}

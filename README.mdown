@@ -1,0 +1,103 @@
+# Pynoby #
+
+Pynoby (**Py**thon-**no**de-ru**by**) is an experiment in parallel development of the same web application in [python](http://www.python.org/), [node](http://nodejs.org/) and [ruby](http://www.ruby-lang.org/en/).
+
+## Principles ##
+
+Pynoby tries to use the equivalent setup and modules in each language: virtualised environment, managed dependencies and a lightweight framework.
+
+## Why? ##
+
+I spend most of my time using [python](http://www.python.org/) and [Flask](http://flask.pocoo.org/). I thought it would be valuable to learn how equivalent things were done (properly) in the other two languages.
+
+## Current Version ##
+
+    0.0.1 Hello world!
+
+## Virtualisation and Dependency Management ##
+
+[Vagrant](http://vagrantup.com/) is used to manage server-level dependencies for each language, including package management, virtualisation and dependencies. It also forwards the appropriate http ports for each app to your host machine.
+
+### Python ###
+
+* [pip](http://www.pip-installer.org/en/latest/index.html)
+* [virtualenv](http://www.virtualenv.org/en/latest/index.html)
+
+### Node ###
+
+* [npm](http://npmjs.org/)
+* [nave](https://github.com/isaacs/nave/)
+
+### Ruby ###
+
+* [rvm](https://rvm.io/)
+* [Bundler](http://gembundler.com/)
+
+## Framework and Templating ##
+
+Framework choice was driven by the requirement to be lightweight (so no [Django](https://www.djangoproject.com/) or [Rails](http://rubyonrails.org/), as wonderful as they might be!). Template engine choice was driven by a requirement to be able to write plain html in the templates, so no [HAML](http://haml.info/)-style templates, thanks!
+
+### Python ###
+
+* [Flask](http://flask.pocoo.org/)
+* [Jinja](http://jinja.pocoo.org/) (Jinja is included in Flask by default)
+
+### Node ###
+
+* [Express](http://expressjs.com/)
+* [Swig](http://paularmstrong.github.com/swig/)
+
+### Ruby ###
+
+* [Sinatra](http://www.sinatrarb.com/)
+* [Liquid](http://liquidmarkup.org/)
+
+## Installation ##
+
+Make sure you have [Virtualbox](https://www.virtualbox.org/) and [Vagrant](http://vagrantup.com/) installed.
+
+Clone the repo and create the vagrant box:
+
+    $ git clone git@github.com:eadmundo/pynoby.git
+    $ cd pynoby
+    $ vagrant up
+
+Wait until vagrant has done its thing, then:
+
+    $ vagrant ssh
+
+`vagrant ssh` should deliver you into `/vagrant` on the vagrant box, ready to try the web apps out. Some of the install steps below take a while to complete (especially `nave install`).
+
+### Flask app ###
+
+    $ cd /vagrant/python_pynoby
+    $ virtualenv venv
+    $ ./venv/bin/pip install -r requirements.txt
+    $ ./venv/bin/python hello_world.py
+
+You should be able view the Flask app by browsing to [http://0.0.0.0:5000/](http://0.0.0.0:5000/) on your host machine.
+
+### Express app ###
+
+    $ cd /vagrant
+    $ nave install 0.8.4
+    $ nave use 0.8.4
+    $ cd /vagrant/node_pynoby
+    $ npm install
+    $ node hello_world.js
+
+You should be able view the Express app by browsing to [http://0.0.0.0:3000/](http://0.0.0.0:3000/) on your host machine.
+
+### Sinatra app ###
+
+    $ cd /vagrant/ruby_pynoby
+    $ rvm install 1.9.3
+    $ rvm --default use 1.9.3
+    $ bundle install
+    $ ruby hello_world.rb
+
+You should be able view the Sinatra app by browsing to [http://0.0.0.0:4567/](http://0.0.0.0:4567/) on your host machine.
+
+## Notes ##
+
+I found [this blog post](http://gillesfabio.com/blog/2011/03/01/rvm-for-pythonistas-virtualenv-for-rubyists/) really helpful.
