@@ -2,6 +2,7 @@ require "rubygems"
 require "bundler/setup"
 require "sinatra"
 require "liquid"
+require "liquid_inheritance"
 
 get '/' do
   layout_path = '/vagrant/shared/templates/index.html'

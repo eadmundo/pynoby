@@ -1,8 +1,7 @@
-<html>
-    <head>
-        <title>{{ title }}</title>
-    </head>
-    <body>
-        <h1>Pynoby - Shared templates (.html)</h1>
-    </body>
-</html>
+{% extends 'html5base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<p>This is the home page, extending the base layout.</p>
+{% endblock %}
