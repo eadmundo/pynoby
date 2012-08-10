@@ -12,7 +12,7 @@ I spend most of my time using [python](http://www.python.org/) and [Flask](http:
 
 ## Current Version ##
 
-    0.0.2 Shared Templates
+    0.0.3 With the Grain Templates
 
 ## Virtualisation and Dependency Management ##
 
@@ -35,9 +35,9 @@ I spend most of my time using [python](http://www.python.org/) and [Flask](http:
 
 ## Framework and Templating ##
 
-Framework choice was driven by the requirement to be lightweight (so no [Django](https://www.djangoproject.com/) or [Rails](http://rubyonrails.org/), as wonderful as they might be!). Template engine choice was driven by a requirement to be able to write plain html in the templates, so no [HAML](http://haml.info/)-style templates, thanks!
+Framework choice was driven by the requirement to be lightweight (so no [Django](https://www.djangoproject.com/) or [Rails](http://rubyonrails.org/), as wonderful as they might be!). Initially the idea was that template engine choice would be driven by a requirement to be able to write plain html in the templates, so no [HAML](http://haml.info/)-style templates, thanks!
 
-The similarity in template syntax between Jinja, Swig and Liquid means it might be possible to share templates between the apps, as well.
+But in fact mature Django-style template engines for Ruby are thin on the ground, and anyway that wouldn't really be learning properly. The template engines are now "with the grain" for each framework.
 
 ### Python ###
 
@@ -47,12 +47,12 @@ The similarity in template syntax between Jinja, Swig and Liquid means it might 
 ### Node ###
 
 * [Express](http://expressjs.com/)
-* [Swig](http://paularmstrong.github.com/swig/)
+* [Jade](http://jade-lang.com)
 
 ### Ruby ###
 
 * [Sinatra](http://www.sinatrarb.com/)
-* [Liquid](http://liquidmarkup.org/)
+* [Haml](http://haml.info)
 
 ## Installation ##
 
@@ -75,7 +75,7 @@ Wait until vagrant has done its thing, then:
     $ cd /vagrant/python_pynoby
     $ virtualenv venv
     $ ./venv/bin/pip install -r requirements.txt
-    $ ./venv/bin/python shared_templates.py
+    $ ./venv/bin/python app.py
 
 You should be able view the Flask app by browsing to [http://0.0.0.0:5000/](http://0.0.0.0:5000/) on your host machine.
 
@@ -86,7 +86,7 @@ You should be able view the Flask app by browsing to [http://0.0.0.0:5000/](http
     $ nave use 0.8.4
     $ cd /vagrant/node_pynoby
     $ npm install
-    $ node shared_templates.js
+    $ node app.js
 
 You should be able view the Express app by browsing to [http://0.0.0.0:3000/](http://0.0.0.0:3000/) on your host machine.
 
@@ -96,7 +96,7 @@ You should be able view the Express app by browsing to [http://0.0.0.0:3000/](ht
     $ rvm install 1.9.3
     $ rvm --default use 1.9.3
     $ bundle install
-    $ ruby shared_templates.rb
+    $ ruby app.rb
 
 You should be able view the Sinatra app by browsing to [http://0.0.0.0:4567/](http://0.0.0.0:4567/) on your host machine.
 
