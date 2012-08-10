@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-app = Flask(__name__, template_folder='/vagrant/shared/templates')
+app = Flask(__name__)
 
 app.debug = True
 

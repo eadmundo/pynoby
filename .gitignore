@@ -14,3 +14,5 @@ node_pynoby/node_modules/*
 
 # ruby
 ruby_pynoby/*.lock
+ruby_pynoby/.bundle
+ruby_pynoby/vendor/*
